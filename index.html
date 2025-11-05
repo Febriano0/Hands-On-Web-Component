@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Counter Components Demo</title>
+  <script src="counter-display.js" defer></script>
+  <script src="counter-controls.js" defer></script>
+  <script src="combined-counter.js" defer></script>
+  <script src="counter-display-b.js" defer></script>
+  <script src="counter-controls-b.js" defer></script>
+  <script src="student-info.js" defer></script>
+</head>
+<body style="font-family:sans-serif; display:flex; flex-direction:column; align-items:center; gap:10px; margin-top:30px;">
+
+  <!-- Identitas -->
+  <student-info name="Kevin Febriano" nim="24/541948/PA/23002"></student-info>
+
+  <!-- Komponen 1: Counter Display -->
+  <h3>Komponen 1: Counter Display:</h3>
+  <counter-display id="display" title="Lorem Ipsum Title" value="99"></counter-display>
+
+  <!-- Komponen 2: Counter Controls -->
+  <h3>Komponen 2: Counter Controls:</h3>
+  <counter-controls id="controls"></counter-controls>
+
+  <script>
+    // Hubungkan tombol kontrol dengan display
+    const display = document.getElementById('display');
+    const controls = document.getElementById('controls');
+    controls.addEventListener('count-change', e => {
+      display.count += e.detail.delta;
+    });
+  </script>
+
+  <!-- Komponen 3: Combined Counter -->
+  <h3>Komponen 3: Combined Counter:</h3>
+  <combined-counter title="Lorem Ipsum Title" value="0"></combined-counter>
+
+  <!-- Varian B -->
+  <h3>Varian B:</h3>
+  <counter-display-b id="displayB" title="Varian B Counter" value="10"></counter-display-b>
+  <counter-controls-b target="displayB"></counter-controls-b>
+
+</body>
+</html>
